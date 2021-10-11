@@ -1,3 +1,4 @@
+/*////////////////////////////////////////////// GENERAL ////////////////////////////////////////////////*/
 * {
     box-sizing: border-box;
 }
@@ -13,12 +14,15 @@ body {
     line-height: 1.5;
 }
 
-iframe {
-    width: 100%;
-    border: none;
-    height: 560px;
+.section {
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    overflow: auto;
 }
 
+/*//////////////////////////////////////////// COUVERTURE ////////////////////////////////////////////////*/
 div.cover {
     background: url(cover_overlay.png) no-repeat center/100% 100%,url(cover.jpg) no-repeat center/cover;
     height: 360px;
@@ -26,11 +30,10 @@ div.cover {
 }
 
 img.cover-profile {
-    height: 100px;
-    /*Est ce qu'il faut imposer un width de 100px == non parceque l'image est carrée*/
+    height: 100px; /*Imposer aussi un width de 100px si l'image n'est pas carrée*/
     position: relative;
     left: 50%;
-    margin-left: -55px;
+    margin-left: -50px;
     margin-top: 50px;
 }
 
@@ -50,7 +53,6 @@ div.cover p{
 }
 
 div.cover-contact {
-    /*background-color: #FF000080;*/
     position: absolute;
     top: 20px;
     left: 10px;
@@ -84,41 +86,25 @@ a.contact-button {
     font-size: 14px;
 }
 
+a.contact-button:hover {
+    color: white;
+    border: 3px solid white;
+}
+
+/*Page Portfolio*/
 a.contact-button-portfolio {
     position: absolute; 
     top: 5px; 
     right: 20px;
 }
 
-a.contact-button:hover {
-    color: white;
-    border: 3px solid white;
-}
+/*///////////////////////// SECTIONS: Grise1 > Blanche > Grise2 > ///////////////////////////////////////*/
 
-.section {
-    padding-left: 40px;
-    padding-right: 40px;
-    padding-top: 30px;
-    padding-bottom: 30px;
-    overflow: auto;
-}
-
+/****SECTION GRISE 1****/
 div.section-grise1 {
     background: url(triangle2white.svg) no-repeat center bottom -1px/100%; /* le-1 pour éviter qu'un trait gris s'affiche en dessous du triangle blanc*/
     background-color: var(--color2);
     padding-bottom: 70px;
-}
-
-div.section-grise2 {
-    background: url(triangle1white.svg) no-repeat center top/100%;
-    background-color: var(--color2);
-    padding-top: 80px;
-}
-
-h2 {
-    text-align: center;
-    font-size: 34px;
-    margin-top: 0px;
 }
 
 div.separateur {
@@ -137,6 +123,13 @@ div.section-grise1 p {
     max-width: 500px;
     margin-left: auto;
     margin-right: auto;
+}
+
+/****SECTION BLANCHE****/
+h2 {
+    text-align: center;
+    font-size: 34px;
+    margin-top: 0px;
 }
 
 img.col-contenu {
@@ -165,6 +158,13 @@ div.texte-avec-ligne-verticale p {
     margin-top: 0;
 }
 
+/****SECTION Grise2(Portfolio)****/
+div.section-grise2 {
+    background: url(triangle1white.svg) no-repeat center top/100%;
+    background-color: var(--color2);
+    padding-top: 80px;
+}
+
 div.barre-verticale {
     height: 50px;
     width: 4px;
@@ -176,26 +176,12 @@ div.barre-verticale {
     width: 47%;
 }
 
-div.frame {
-    margin: 30px 50px;
-    padding: 20px 30px;
-    background-color: white;
-    box-shadow: 0px 0px 8px 8px rgba(0, 0, 0, .1);
-}
 
-p.frame-title {
-    font-size: 30px;
-    text-align: center;
-    margin-top: 5px;
-    margin-bottom: 10px;
-}
+/*///////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/*/////////////////////////////////////////// PAGE PORTFOLIO ////////////////////////////////////////////*/
+/*///////////////////////////////////////////////////////////////////////////////////////////////////////*/
 
-div.frame img {
-    width: 100px;
-}
-
-/* PORTFOLIO */
-
+/**** SECTION Header ****/
 .portfolio-header {
     height: 90px;
     background: url(header.jpg) no-repeat center/cover;
@@ -208,6 +194,12 @@ div.frame img {
     font-size: 26px;
     padding-top: 4px;
     padding-left: 8px;
+}
+
+/**** SECTION Grise1 ****/
+a.portfolio-back {
+    color: var(--color1);
+    margin-left: -10px;
 }
 
 h1.portfolio {
@@ -224,22 +216,55 @@ h2.portfolio {
     margin-bottom: 0;
 }
 
-a.portfolio-back {
-    color: var(--color1);
-    margin-left: -10px;
-}
-
+/**** SECTION Blanche ****/
 img.portfolio {
     max-width: 475px; 
     width: 70%;
 }
 
+
+/*///////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/*///////////////////////////////////////////// PAGE FRAME //////////////////////////////////////////////*/
+/*///////////////////////////////////////////////////////////////////////////////////////////////////////*/
 .display-mobile {
     display: none;
 }
 
-/* RESPONSIVE DESIGN : MOBILE */
+iframe {
+    width: 100%;
+    border: none;
+    height: 550px;
+}
+
+div.frame {
+    margin: 30px 50px;
+    padding: 20px 20px;
+    box-shadow: 0px 0px 8px 8px rgba(0, 0, 0, .1);
+}
+
+p.frame-title {
+    font-size: 30px;
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+div.frame img {
+    width: 100px;
+}
+
+/*///////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/*//////////////////////////////// RESPENSIVE DESIGN: MOBILE < 767px ////////////////////////////////////*/
+/*///////////////////////////////////////////////////////////////////////////////////////////////////////*/
 @media only screen and (max-width: 767px) {
+    /* Partie Générale */
+    .section {
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+
     /* Partie index */
     img.cover-profile {
         height: 90px;
@@ -255,23 +280,26 @@ img.portfolio {
         margin-top: 2px;
         font-size: 13px;
     }
-
-    .section {
-        padding-left: 20px;
-        padding-right: 20px;
-    }
     
+    /* Partie Grise1 */
     div.section-grise1 {
-        padding-bottom: 40px;
-        
+        padding-bottom: 20px;
     }
 
+    div.section-grise1 p {
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+
+    /* Partie Blanche */
     h2 {
         font-size: 30px;
+        margin-bottom: 15px;
     }
 
     img.col-contenu {
         width: 100%;
+        height: 250px;
     }
     
     div.col-contenu {
@@ -280,24 +308,28 @@ img.portfolio {
         margin-top: 20px;
     }
 
+    /* Partie Grise2 */
     .col-portfolio {
         width: 100%;
         margin-bottom: 20px;
     }
 
-    /* Partie iframe */
-    div.frame {
-        margin: 0px 0px;
-        padding: 0px 0px;
-        box-shadow: none;
-        line-height: 2;
+    div.section-grise2 {
+        padding-top: 40px;
     }
+
+    /* Partie iframe */
+
 
     div.frame img {
         width: 70px;
     }
 
-    /* Partie portfolio */
+    /*//////////////////*/
+    /** Page portfolio **/
+    /*//////////////////*/
+
+    /* Partie Header */
     .portfolio-header-title{
         font-size: 19px;
         padding-top: 10px;
@@ -314,6 +346,7 @@ img.portfolio {
         right: 8px;
     }
 
+    /* Partie Grise1 */
     h1.portfolio {
         font-size: 40px;
     }
@@ -322,139 +355,101 @@ img.portfolio {
         font-size: 22px;
     }
 
+    /* Partie Blanche */
     img.portfolio {
         width: 100%;
     }
 
+    /* Séparateur iFrame */
+    .display-mobile {
+        display: block;
+    }
+
+    div.frame {
+        box-shadow: none;
+    }
+
+}
+
+
+/*///////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/*//////////////////////////////// RESPENSIVE DESIGN: MOBILE < 570px ////////////////////////////////////*/
+/*///////////////////////////////////////////////////////////////////////////////////////////////////////*/
+@media only screen and (max-width: 570px) {
+
+    /*//////////////////*/
+    /**** Page FRAME ****/
+    /*//////////////////*/
+    iframe {
+        height: 600px;
+        border: none;
+    }
+
+    div.frame {
+        margin: 0px 0px;
+        padding: 5px 5px;
+        box-shadow: none;
+    }
+    /* Séparateur iFrame */
     .display-mobile {
         display: block;
     }
 }
 
-/* RESPONSIVE DESIGN FOR MOBILE < 460PX */
-@media only screen and (max-width: 440px) {
-    /* Partie index */
 
+/*///////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/*//////////////////////////////// RESPENSIVE DESIGN: MOBILE < 400px ////////////////////////////////////*/
+/*///////////////////////////////////////////////////////////////////////////////////////////////////////*/
+@media only screen and (max-width: 400px) {
+
+    /* Partie index */
     div.cover {
         height: 320px;
     }
 
-    h1 {
-        font-size: 30px;
-        margin-top: 0px;
+    img.cover-profile {
+        margin-top: 80px;
     }
 
-    .section {
-        padding-left: 15px;
-        padding-right: 15px;
-        padding-top: 30px; /* ENLVER LE SEPARATEUR APRES QUAND ON MET 30PX APPARAIT*/
-    }
-    
-    div.section-grise1 {
-        padding-bottom: 20px;
-    }
-
-    div.section-grise2 {
-        padding-top: 10px;
-    }
-
-    h2 {
-        font-size: 18px;
-    }
-
-    /* Partie portfolio */
-    .portfolio-header-title{
-        font-size: 15px;
-    }
-
-    .display-mobile {
-        display: none;
-    }
-
-    a.contact-button {
-        padding: 5px 10px;
-        margin-top: 20px;
-        font-size: 12px;
-    }
-
-    a.contact-button-portfolio {
-        right: 8px;
-    }
-
-}
-
-
-/************************** RESPONSIVE DESIGN FOR MOBILE < 200PX ***************************************/
-@media only screen and (max-width: 250px) {
-    
-    /* Partie index */
-    body {
-        line-height: 1.2;
-    }
-    
-    div.cover {
-        height: 280px;
+    div.cover p{
+        margin-top: 8px;
+        margin-bottom: 0px;
     }
 
     h1 {
-        font-size: 20px;
-        margin-top: 0px;
-    }
-
-    .section {
-        padding-left: 15px;
-        padding-right: 15px;
-        padding-top: 0; /* ENLVER LE SEPARATEUR APRES QUAND ON MET 30PX APPARAIT*/
+        font-size: 25px;
     }
     
-    div.section-grise1 {
-        padding-bottom: 0px;
-    }
-
-    div.section-grise1 p {
-        margin-top: 6px;
-        margin-bottom: 8px;
-        font-size: 14px;
-    }
-
-    div.texte-avec-ligne-verticale p {
-        font-size: 14px;
-    }
-
+    /*//////////////////*/
+    /**** Page FRAME ****/
+    /*//////////////////*/
     iframe {
-        background-color: yellow;
-        height: 1200px;
+        height: 600px;
+        border: none;
     }
 
-    div.section-grise2 {
-        padding-top: 40px;
+    div.frame {
+        margin: 0px 0px;
+        padding: 5px 5px;
+        box-shadow: none;
     }
-
-    h2 {
-        font-size: 20px;
-    }
-
-    /* Partie portfolio */
-    .portfolio-header-title{
-        font-size: 15px;
-    }
-
+    /* Séparateur iFrame */
     .display-mobile {
-        display: none;
+        display: block;
     }
 
-    a.contact-button {
-        padding: 5px 10px;
-        margin-top: 5px;
-        font-size: 12px;
+    p.frame-title {
+        font-size: 20px;
+        margin-bottom: 5px;
     }
 
-    a.contact-button-portfolio {
-        right: 8px;
-    }
-
-    div.texte-avec-ligne-verticale a {
+    table.table-frame p{
         font-size: 14px;
+        line-height: 1.4;
+    }
+    
+    div.texte-avec-ligne-verticale p {
+        margin-top: 0;
     }
 
 }
