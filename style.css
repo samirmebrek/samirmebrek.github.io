@@ -119,8 +119,8 @@ div.separateur {
 div.section-grise1 p {
     font-size: 22px;
     color: #656565;
-    text-align: center;
-    max-width: 500px;
+    text-align: left;
+    /*max-width: 500px;*/
     margin-left: auto;
     margin-right: auto;
 }
@@ -174,6 +174,53 @@ div.barre-verticale {
 
 .col-portfolio {
     width: 47%;
+}
+
+
+/******************   CSS ajouter pour les projet du portfollio (MAJ DU 08-11-23)   ********************/
+/* Style pour la grille de portfolio */
+.portfolio-grid-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.portfolio-item {
+    flex-basis: calc(33.333% - 20px); /* ajustez la marge en fonction de votre mise en page */
+    text-align: center; /* Centre le contenu des colonnes */
+    overflow: hidden; /* To make sure the scaled image doesn't exceed the container */
+    position: relative; /* To position the overlay content */
+    border: 3px solid transparent; /* Transparent border to avoid jumping effect when hover */
+    transition: transform 0.3s ease, border-color 0.3s ease; /* Smooth transition for transform and border color */
+}
+
+.portfolio-item:hover {
+    cursor: pointer; /* Changes the cursor to indicate that it's clickable */
+    transform: scale(1.05); /* Scales up the image to 105% of the original size */
+    border-color: #007bff; /* Changes the border color to blue */
+  }
+
+.portfolio-image {
+    width: 100%; /* Pour que l'image remplisse le conteneur */
+    height: auto; /* Pour conserver les proportions de l'image */
+    margin-bottom: 10px; /* Espacement entre l'image et le titre */
+    transition: transform 0.3s ease; /* Smooth transition for the transform */
+    display: block; /* To remove any extra space under the image */
+}
+
+@media only screen and (max-width: 767px) {
+    .portfolio-grid-container {
+        flex-direction: column;
+    }
+    
+    .portfolio-item {
+        flex-basis: 100%;
+        margin-bottom: 20px; /* Espacement entre les éléments lorsqu'ils sont en colonne */
+    }
+}
+
+/* Ajoutez ceci à votre fichier CSS */
+.section-grise2 .portfolio-item h3 {
+    color: #8C9294; /* Ceci changera la couleur de texte des éléments h3 */
 }
 
 
